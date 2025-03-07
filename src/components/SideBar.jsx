@@ -9,7 +9,6 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         <FaMusic className="logo-icon" />
         <span>Spotify</span>
       </div>
-
       <Nav className="flex-column">
         <Nav.Link className={activeTab === "forYou" ? "active" : ""} onClick={() => setActiveTab("forYou")}>
           <span>For You</span>
