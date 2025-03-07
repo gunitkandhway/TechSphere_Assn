@@ -17,21 +17,16 @@ const Player = ({
   const [currentTime, setCurrentTime] = useState(0)
   const [volume, setVolume] = useState(0.7)
   const [isMuted, setIsMuted] = useState(false)
-
   useEffect(() => {
     const audio = audioRef.current
-
     const updateTime = () => {
       setCurrentTime(audio.currentTime)
     }
-
     audio.addEventListener("timeupdate", updateTime)
-
     return () => {
       audio.removeEventListener("timeupdate", updateTime)
     }
   }, [audioRef])
-
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play().catch((error) => {
@@ -39,7 +34,6 @@ const Player = ({
       })
     }
   }, [song, isPlaying, audioRef])
-
   const handleVolumeChange = (e) => {
     const newVolume = Number.parseFloat(e.target.value)
     setVolume(newVolume)
@@ -51,7 +45,6 @@ const Player = ({
       setIsMuted(false)
     }
   }
-
   const toggleMute = () => {
     if (isMuted) {
       audioRef.current.volume = volume
@@ -61,19 +54,16 @@ const Player = ({
       setIsMuted(true)
     }
   }
-
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60)
     const secs = Math.floor(seconds % 60)
     return `${mins}:${secs < 10 ? "0" : ""}${secs}`
   }
-
   const handleProgressChange = (e) => {
     const newTime = Number.parseFloat(e.target.value)
     setCurrentTime(newTime)
     audioRef.current.currentTime = newTime
   }
-
   return (
     <div className="player">
       {showSidebarToggle && (
@@ -81,16 +71,13 @@ const Player = ({
           <FaBars />
         </Button>
       )}
-
       <div className="song-details">
         <h2>{song.title}</h2>
         <p>{song.artistName}</p>
       </div>
-
       <div className="album-cover">
         <img src={song.thumbnail || "/placeholder.svg"} alt={song.title} />
       </div>
-
       <div className="progress-container">
         <input
           type="range"
@@ -105,26 +92,21 @@ const Player = ({
           <span>{formatTime(song.duration)}</span>
         </div>
       </div>
-
       <div className="controls">
         <Button variant="link" onClick={onPrevious}>
           <FaStepBackward />
         </Button>
-
         <Button variant="link" className="play-button" onClick={onPlayPause}>
           {isPlaying ? <FaPause /> : <FaPlay />}
         </Button>
-
         <Button variant="link" onClick={onNext}>
           <FaStepForward />
         </Button>
       </div>
-
       <div className="volume-control">
         <Button variant="link" onClick={toggleMute}>
           {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
         </Button>
-
         <input
           type="range"
           min="0"
@@ -135,10 +117,8 @@ const Player = ({
           className="volume-slider"
         />
       </div>
-
       <audio ref={audioRef} src={song.musicUrl} onEnded={onEnded} autoPlay={isPlaying} />
     </div>
   )
 }
-
 export default Player

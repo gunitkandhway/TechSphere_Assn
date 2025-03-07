@@ -1,0 +1,130 @@
+@use 'variables' as *;
+.music-list {
+  h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+  }  
+  .list-group {
+    background-color: transparent;
+  }  
+  .song-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: none;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    color: $text-color;
+    transition: all 0.2s ease;    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      
+      .play-icon {
+        opacity: 1;
+      }
+    }    
+    &.active {
+      background-color: rgba(255, 255, 255, 0.15);      
+      .song-title {
+        color: $primary-color;
+      }
+    }
+  }  
+  .song-thumbnail {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }    
+    .play-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.2s ease;      
+      svg {
+        color: $text-color;
+        font-size: 20px;
+      }
+    }
+  }  
+  .song-info {
+    flex: 1;    
+    .song-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }    
+    .song-artist {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }  
+  .song-duration {
+    margin-right: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+  }  
+  .song-actions {
+    .dropdown-toggle {
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.7);      
+      &:hover {
+        color: $text-color;
+      }
+    }    
+    .dropdown-menu {
+      background-color: $background-color;
+      border: 1px solid rgba(255, 255, 255, 0.1);      
+      .dropdown-item {
+        color: $text-color;        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }        
+        svg {
+          margin-right: 10px;
+          
+          &.favorite {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+.music-list-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.song-item {
+  animation: slideIn 0.3s ease-in-out;
+  animation-fill-mode: both;  
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+}
+

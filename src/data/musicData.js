@@ -9,14 +9,14 @@ export const musicData = [
     {
       title: "Demons",
       artistName: "Imagine Dragons",
-      thumbnail: "https://i.scdn.co/image/ab67616d0000b273727a2e1bef7c32f3d0e89524",
+      thumbnail: "https://i.scdn.co/image/ab67616d0000b273a048415db06a5b6fa7ec4e1a",
       musicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       duration: 324, 
     },
     {
       title: "Mouth of the river",
       artistName: "Imagine Dragons",
-      thumbnail: "https://i.scdn.co/image/ab67616d0000b273727a2e1bef7c32f3d0e89524",
+      thumbnail: "https://i.scdn.co/image/ab67616d0000b273a048415db06a5b6fa7ec4e1a",
       musicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       duration: 383, 
     },
@@ -51,7 +51,7 @@ export const musicData = [
     {
       title: "Pain",
       artistName: "Ryan Star",
-      thumbnail: "https://i.scdn.co/image/ab67616d0000b273b5db31a7c2a1a5a5e3b4c4f5",
+      thumbnail: "https://i.scdn.co/image/ab67616d0000b273a048415db06a5b6fa7ec4e1a",
       musicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       duration: 192, 
     },

@@ -1,6 +1,6 @@
 import { Nav } from "react-bootstrap"
 import { FaMusic } from "react-icons/fa"
-import "../styles/Sidebar.scss"
+import "../styles/SideBar.scss"
 
 const Sidebar = ({ activeTab, setActiveTab }) => {
   return (

@@ -1,0 +1,45 @@
+@use 'variables' as *;
+.sidebar {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  padding: 20px 0;
+  color: $text-color;  
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 30px;    
+    .logo-icon {
+      font-size: 24px;
+      margin-right: 10px;
+      color: $primary-color;
+    }    
+    span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }  
+  .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    transition: all 0.3s ease;    
+    &:hover {
+      color: $text-color;
+      background-color: rgba(255, 255, 255, 0.1);
+    }    
+    &.active {
+      color: $text-color;
+      border-left: 3px solid $primary-color;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+}
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    width: 200px;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
